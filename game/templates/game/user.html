@@ -1,0 +1,16 @@
+{% extends "/game/base.html" %}
+{% block main %}
+<div class="grid-main">
+  <div class="grid-main-item-main">
+    {% if pc.inventory %}
+    Goods:
+    <ul>
+      {% for k,v in pc.inventory.visible.goods.items() %}
+      <li> {{ k }} </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <div class="grid-main-item-action">B</div>
+</div>
+{% endblock %}

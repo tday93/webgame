@@ -1,0 +1,7 @@
+{
+  "links":[
+    {"url":"google.com", "text": "google"},
+    {"url":"wikipedia", "text": "wikipedia"},
+    {"url":"google.com", "text": "google2"}
+  ]
+}

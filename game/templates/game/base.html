@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Title Here {% endblock %} </title>
+    {% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game_base.css') }}">
+    {% endblock %}
+  </head>
+  <body>
+    <div class="sidenav">
+      {% block sidenav %}
+      {% if sidenav %}
+      {% for link in sidenav.links %}
+      <a href="{{ link.url }}">{{ link.text }}</a>
+      {% endfor %}
+      {% endif %}
+      {% endblock %}
+    </div>
+    <div class="main">
+      {% block main %}
+      <div class="grid-main">
+        <div class="grid-main-item-main">A</div>
+        <div class="grid-main-item-action">B</div>
+      </div>
+      {% endblock %}
+    </div>
+  </body>
+</html>
+
