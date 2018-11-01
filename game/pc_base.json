@@ -1,0 +1,25 @@
+{
+  "inventory": {
+    "goods":{}
+  },
+  "stats": {
+    "vigor": {
+      "level": 1,
+      "sublevel": 0
+    },
+    "moxie": {
+      "level": 1,
+      "sublevel": 0
+    },
+    "insight": {
+      "level": 1,
+      "sublevel": 0
+    },
+    "subtlety": {
+      "level": 1,
+      "sublevel": 0
+    }
+  },
+  "tags": {},
+  "journal": {}
+}

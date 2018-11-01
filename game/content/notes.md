@@ -6,10 +6,10 @@
 
 ## Stats:
 
-  * Persuasive / Personality
-  * Physical Hardiness
-  * Intelligence
-  * Sneaky
+  * Vigor
+  * Moxie - charisma
+  * Insight
+  * Subtlety
 
 ## Setting:
   1920s Boston, but weird, names changed

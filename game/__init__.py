@@ -38,14 +38,4 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
-    from . import home
-    app.register_blueprint(home.bp)
-    app.add_url_rule('/', endpoint='home')
-
-    from . import game
-    app.register_blueprint(game.bp)
-
-    from . import user
-    app.register_blueprint(user.bp)
-
     return app

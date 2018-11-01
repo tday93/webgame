@@ -1,4 +1,4 @@
-from game.item import base_inventory
+import json
 from game.db import get_db, easy_query, json_update
 
 
@@ -8,32 +8,41 @@ class Player():
         self.uid = uid
         self.db = get_db()
         self.username = None
-        self.inventory = None
+        self.data = None
         self.instantiate()
+        self.stats = self.data["stats"]
+        self.inv = self.data["inventory"]
 
     def instantiate(self):
-        self.inventory = self.get_inventory()
+        self.data = self.get_data()
         self.username = self.get_username()
-        self.check_inv()
+        self.check_data()
 
-    def check_inv(self):
-        if "visible" not in self.inventory:
-            self.inventory = base_inventory
-            self.store_inventory()
-            self.inventory = self.get_inventory()
-
-    def add_good(self, good, qty):
-        goods = self.inventory["visible"]["goods"]
-        if good in goods:
-            goods[good]["qty"] += qty
-        else:
-            goods[good] = {"qty": qty}
+    def check_data(self):
+        if self.data is None:
+            self.data = get_base_data()
+            self.store_data()
+            self.data = self.get_data()
 
     def get_username(self):
         return easy_query("SELECT username FROM users WHERE id = %s", (self.uid,), self.db)
 
-    def get_inventory(self):
-        return easy_query("SELECT inventory FROM users WHERE id = %s", (self.uid,), self.db)["inventory"]
+    def get_data(self):
+        return easy_query("SELECT data FROM users WHERE id = %s", (self.uid,), self.db)["data"]
 
-    def store_inventory(self):
-            json_update("UPDATE users SET inventory = %s WHERE id = %s", self.inventory, [self.uid])
+    def store_data(self):
+            json_update("UPDATE users SET data = %s WHERE id = %s", self.data, [self.uid])
+
+    def add_to_stat(self, stat, delta):
+        self.stats[stat]["sublevel"] += delta
+
+    def add_to_inventory(self, item):
+        pass
+
+    def remove_from_inventory(self, item):
+        pass
+
+
+def get_base_data():
+    with open("game/pc_base.json") as fn:
+        return json.load(fn)

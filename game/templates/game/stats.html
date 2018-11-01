@@ -2,11 +2,11 @@
 {% block main %}
 <div class="grid-main">
   <div class="grid-main-item-main">
-    {% if pc.inventory %}
-    Goods:
+    {% if pc.stats %}
+    Stats:
     <ul>
-      {% for k,v in pc.inventory.visible.goods.items() %}
-      <li> {{ k }} </li>
+      {% for k,v in pc.stats.items() %}
+      <li> {{ k }} : {{ v.level }}</li>
       {% endfor %}
     </ul>
     {% endif %}

@@ -3,7 +3,7 @@ CREATE TABLE users (
   id SERIAL,
   username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
-  inventory JSONB
+  data JSONB
 );
 
 

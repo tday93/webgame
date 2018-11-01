@@ -7,22 +7,26 @@
     {% endblock %}
   </head>
   <body>
-    <div class="sidenav">
-      {% block sidenav %}
-      {% if sidenav %}
-      {% for link in sidenav.links %}
-      <a href="{{ link.url }}">{{ link.text }}</a>
-      {% endfor %}
-      {% endif %}
-      {% endblock %}
-    </div>
-    <div class="main">
-      {% block main %}
-      <div class="grid-main">
-        <div class="grid-main-item-main">A</div>
-        <div class="grid-main-item-action">B</div>
+    <div class="content-container">
+      <div class="sidenav">
+        {% block sidenav %}
+        {% if sidenav %}
+        {% for link in sidenav.links %}
+        <a href="{{ link.url }}">{{ link.text }}</a>
+        {% endfor %}
+        {% endif %}
+        {% endblock %}
       </div>
-      {% endblock %}
+      <div class="content-container-item">
+        <div class="main">
+          {% block main %}
+          <div class="grid-main">
+            <div class="grid-main-item-main"></div>
+            <div class="grid-main-item-action"></div>
+          </div>
+          {% endblock %}
+        </div>
+      </div>
     </div>
   </body>
 </html>
